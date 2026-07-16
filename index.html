@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="projekt_woche.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+            <path d="M52.1 3c-14.5 0-22.9 1-22.9 6.8v10.3h23.4v3.4H19.2C8.3 23.5 3 29.3 3 41.3c0 11.5 4.5 17.5 14.5 17.5h8.6v-12c0-8.2 6.8-15 15-15h23.4V20.3c0-11-8-17.3-22.4-17.3z" fill="#3776AB"/>
+            <path d="M57.9 107c14.5 0 22.9-1 22.9-6.8V89.9H57.4v-3.4h33.4c10.9 0 16.2-5.8 16.2-17.8 0-11.5-4.5-17.5-14.5-17.5h-8.6v12c0 8.2-6.8 15-15 15H45.5v11.5c0 11 8 17.3 22.4 17.3z" fill="#FFD43B"/>
+            <circle cx="36" cy="14" r="4.5" fill="#111827"/>
+            <circle cx="74" cy="96" r="4.5" fill="#111827"/>
+        </svg>
+        <div style="display: flex; gap: 6px;">
+            <span style="color: #3776AB;">Python</span>
+            <span style="color: #FFD43B;">Academy</span>
+        </div>
+    </div>
+
+    <div class="search-pos">
+        <input class="search" id="search-input" placeholder="Themen durchsuchen...">
+    </div>
+    
+    <div class="nav-links" id="sidebar-menu">
+        <a data-target="start" data-color="yellow" class="active-yellow">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Start
+        </a>
+        <a data-target="variablen" data-color="blue">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>Variablen
+        </a>
+        <a data-target="print" data-color="blue">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>print()
+        </a>
+        <a data-target="input" data-color="blue">
+            <svg viewBox="0 0 24 24"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 4h2v2h-2v-2zM8 8h2v2H8V8zm0 4h2v2H8v-2zm-1 2H5v-2h2v2zm0-4H5V8h2v2zm9 7H8v-2h8v2zm1-3h-2v-2h2v2zm0-4h-2V8h2v2z"/></svg>input()
+        </a>
+        <a data-target="if" data-color="blue">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg>if / else
+        </a>
+        <a data-target="listen" data-color="blue">
+            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>Listen [ ]
+        </a>
+        <a data-target="loops" data-color="blue">
+            <svg viewBox="0 0 24 24"><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/></svg>while-Schleifen
+        </a>
+        <a data-target="ki-section" data-color="purple" class="purple-link" style="border-top: 1px solid var(--border-color); padding-top: 15px; margin-top: 300px;">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5zM12 6a6 6 0 0 0-6 6c0 .87.18 1.71.51 2.48l-.34 1 .98-.33A5.923 5.923 0 0 0 12 18a6 6 0 0 0 6-6 6 6 0 0 0-6-6z"/></svg>KI richtig nutzen
+        </a>
+        <a data-target="game-section" data-color="purple" class="purple-link"padding-top: 15px;">
+            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>Mini-Game: Bug-Jäger
+        </a>
+        <a data-target="quiz-section" data-color="pink" class="purple-link" style="margin-top: auto; padding-top: 20px;">
+            <svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-1.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>Quiz-Zentrale
+        </a>
+    </div>
+</div>
+
+<div class="main">
+    <header> <!-- ! -->
+    <h2 id="page-title">Start</h2>
+        
+    </header>
+    
+    <div class="container">
+        <div id="start" class="content-section active">
+            <div class="card">
+                <h1>Willkommen bei der Python Academy!</h1>
+                <p>Python ist eine Sprache, mit der du dem Computer Befehle gibst. Sie ist extrem leicht zu lernen. Klicke links auf die Themen, um sie einzeln anzuschauen!</p>
+                <div class="tip-box">
+                    <strong>Wie ein Programmierer denken:</strong> Programmieren ist wie ein Kochrezept schreiben. Der Computer macht stur genau das, was du Zeile für Zeile aufschreibst. Wenn etwas nicht klappt, nennt man den Fehler einen <strong>"Bug"</strong>.
+                </div>
+            </div>
+        </div>
+        
+        <div id="variablen" class="content-section">
+            <div class="card">
+                <h2>Schubladen für Daten</h2>
+                <p>Eine Variable ist eine <strong>Schublade mit Namen</strong>. Du legst ein Wort oder eine Zahl hinein, um es für später aufzuheben.</p>
+                <div class="code-wrapper">
+                    <div class="code-header"><span>Python</span><button class="copy">Kopieren</button></div>
+                    <div class="code">name = <span class="str">"Anna"</span>  <span class="cmt"># Wort in Schublade "name" packen</span>
+alter = <span class="num">21</span>     <span class="cmt"># Zahl in Schublade "alter" packen</span>
+
+<span class="fnc">print</span>(name)    <span class="cmt"># Guck in die Schublade und zeig es an</span></div>
+                </div>
+                <div class="terminal-wrapper">
+                    <div class="terminal-header">Bildschirm-Ausgabe</div>
+                    <div class="terminal-output">Anna</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="print" class="content-section">
+            <div class="card">
+                <h2>Sachen ausdrucken</h2>
+                <p>Der Befehl <code>print()</code> ist wie ein kleiner <strong>Drucker</strong>. Alles in den Klammern wird auf den Bildschirm geschrieben.</p>
+                <div class="code-wrapper">
+                    <div class="code-header"><span>Python</span><button class="copy">Kopieren</button></div>
+                    <div class="code"><span class="fnc">print</span>(<span class="str">"Hallo Welt!"</span>)</div>
+                </div>
+                <div class="terminal-wrapper">
+                    <div class="terminal-header">Bildschirm-Ausgabe</div>
+                    <div class="terminal-output">Hallo Welt!</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="input" class="content-section">
+            <div class="card">
+                <h2>Den Nutzer fragen</h2>
+                <p>Mit <code>input()</code> stellt der Computer dem Nutzer eine Frage und <strong>wartet</strong>, bis dieser etwas eintippt und Enter drückt.</p>
+                <div class="code-wrapper">
+                    <div class="code-header"><span>Python</span><button class="copy">Kopieren</button></div>
+                    <div class="code">farbe = <span class="fnc">input</span>(<span class="str">"Deine Lieblingsfarbe? "</span>)
+<span class="fnc">print</span>(<span class="str">"Cool,"</span>, farbe)</div>
+                </div>
+                <div class="terminal-wrapper">
+                    <div class="terminal-header">Bildschirm-Ausgabe</div>
+                    <div class="terminal-output">Deine Lieblingsfarbe? <span style="color:#fff; font-style:italic">Blau</span>
+Cool, Blau</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="if" class="content-section">
+            <div class="card">
+                <h2> Wege entscheiden</h2>
+                <p>Mit <code>if</code> (Wenn) und <code>else</code> (Ansonsten) biegt der Computer ab, je nachdem was stimmt. Wie ein Türsteher im Club.</p>
+                <div class="code-wrapper">
+                    <div class="code-header"><span>Python</span><button class="copy">Kopieren</button></div>
+                    <div class="code">alter = <span class="num">15</span>
+
+<span class="kwd">if</span> alter >= <span class="num">18</span>:
+    <span class="fnc">print</span>(<span class="str">"Rein in den Club!"</span>)
+<span class="kwd">else</span>:
+    <span class="fnc">print</span>(<span class="str">"Du musst leider draußen warten."</span>)</div>
+                </div>
+                <div class="terminal-wrapper">
+                    <div class="terminal-header">Bildschirm-Ausgabe</div>
+                    <div class="terminal-output">Du musst leider draußen warten.</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="listen" class="content-section">
+            <div class="card">
+                <h2>Listen [ ]</h2>
+                <p>Was ist, wenn du nicht nur eine Sache, sondern ganz viele Sachen in eine Variable packen willst? Dafür gibt es Listen! Stell es dir wie einen <strong>Einkaufszettel</strong> vor.</p>
+                <div class="tip-box">
+                    <strong> Wichtig:</strong> Der Computer fängt immer bei <strong>0</strong> an zu zählen! Die erste Sache auf der Liste ist also die Nummer 0.
+                </div>
+                <div class="code-wrapper">
+                    <div class="code-header"><span>Python</span><button class="copy">Kopieren</button></div>
+                    <div class="code">einkauf = [<span class="str">"Apfel"</span>, <span class="str">"Banane"</span>, <span class="str">"Milch"</span>]
+
+<span class="fnc">print</span>(einkauf[<span class="num">0</span>])  <span class="cmt"># Zeige die Sache an Stelle 0 (die erste Sache)</span>
+<span class="fnc">print</span>(einkauf[<span class="num">2</span>])  <span class="cmt"># Zeige die Sache an Stelle 2 (die dritte Sache)</span></div>
+                </div>
+                <div class="terminal-wrapper">
+                    <div class="terminal-header">Bildschirm-Ausgabe</div>
+                    <div class="terminal-output">Apfel
+Milch</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loops" class="content-section">
+            <div class="card">
+                <h2>while-Schleifen (Wiederholungen)</h2>
+                <p>Mit einer Schleife kannst du den Computer zwingen, eine Aufgabe <strong>immer und immer wieder zu wiederholen</strong>, so lange, bis eine Bedingung erfüllt ist.</p>
+                <div class="code-wrapper">
+                    <div class="code-header"><span>Python</span><button class="copy">Kopieren</button></div>
+                    <div class="code">zaehler = <span class="num">1</span>
+
+<span class="kwd">while</span> zaehler < = <span class="num">3</span>:  <span class="cmt"># Solange der Zähler kleiner oder gleich 3 ist:</span>
+    <span class="fnc">print</span>(<span class="str">"Wiederholung Nummer"</span>, zaehler)
+    zaehler = zaehler + <span class="num">1</span></div>
+                </div>
+                <div class="terminal-wrapper">
+                    <div class="terminal-header">Bildschirm-Ausgabe</div>
+                    <div class="terminal-output">Wiederholung Nummer 1
+Wiederholung Nummer 2
+Wiederholung Nummer 3</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ki-section" class="content-section">
+            <div class="card">
+                <h1> Wie man eine KI richtig benutzt</h1>
+                <p>Eine KI kann dir genial beim Programmieren lernen helfen. Stell dir die KI wie einen <strong>extrem fleißigen, aber etwas unschlauen Praktikanten</strong> vor.</p>
+                <h2>Die 3 goldenen KI-Regeln</h2>
+                <div class="tip-box">
+                    <strong>1. Häppchen-Taktik </strong><br>Frag die KI niemals nach einem riesigen, fertigen Programm. Frag immer nach kleinen Teilen.
+                </div>
+                <div class="tip-box">
+                    <strong>2. Sag der KI, wer sie ist </strong><br>Gib der KI eine Rolle, z.B. „Du bist ein geduldiger Lehrer für Anfänger“.
+                </div>
+                <div class="tip-box">
+                    <strong>3. Zeig ihr deinen Code </strong><br>Kopiere fehlerhaften Code komplett hinein und nenne die exakte Fehlermeldung.
+                </div>
+                
+                <h2 style="margin-top: 30px;">Der Prompt-Vergleich: Schlecht vs. Gut</h2>
+                <div class="prompt-grid">
+                    <div class="prompt-card bad">
+                        <h4>Schlechter Prompt</h4>
+                        <div class="text">Mach mir ein Quiz-Spiel in Python.</div>
+                    </div>
+                    <div class="prompt-card good">
+                        <h4>Perfekter Prompt</h4>
+                        <div class="text">Du bist ein Python-Lehrer für Anfänger. Erkläre mir in einfachen Worten, wie ich eine einzige Quiz-Frage mit einem "if/else"-Befehl abfrage...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-section" class="content-section">
+            <div class="card">
+                <h1>Mini-Game: Der Code-Bug-Jäger</h1>
+                <p>Finde in jedem Code-Abschnitt die **eine Zeile**, die falsch geschrieben ist und das Programm zum Absturz bringt. Klicke sie an!</p>
+                
+                <div id="game-welcome" class="quiz-welcome-screen">
+                    <button class="start-btn" style="background: #10b981;" onclick="startGame()">Jagd starten</button>
+                </div>
+
+                <div id="game-play" class="game-container">
+                    <div class="game-score-board">
+                        <span id="game-level-text">Bug 1 von 3</span>
+                        <span id="game-score-text" style="color: var(--yellow-primary);">Punkte: 0</span>
+                    </div>
+                    <h3 id="game-task-text" style="margin-bottom: 15px; font-size: 16px;">Finde den Fehler im Code:</h3>
+                    <div class="code-wrapper" style="border-radius:12px;">
+                        <div class="code-header"><span>Interaktiver Code-Editor</span></div>
+                        <div id="game-code-box" style="background: var(--bg-code); padding: 15px 10px;"></div>
+                    </div>
+                    <div class="feedback-box" id="game-feedback-box"></div>
+                    <button class="next-btn" id="game-next-btn" onclick="nextGameLevel()">Nächster Bug ➔</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="quiz-section" class="content-section">
+            <div class="card">
+                <h1>Die Python & KI Quiz-Zentrale</h1>
+                <p>Bist du bereit, dein Wissen zu testen?</p>
+                <div id="quiz-welcome" class="quiz-welcome-screen">
+                    <button class="start-btn" onclick="startQuiz()">Quiz jetzt starten</button>
+                </div>
+                <div id="quiz-game" class="quiz-game-container">
+                    <div class="quiz-progress" id="quiz-prog-text">Frage 1 von 5</div>
+                    <div id="quiz-question-text" style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: var(--yellow-primary);">Fragetext lädt...</div>
+                    <div id="quiz-code-block"></div>
+                    <div class="quiz-box" id="quiz-options-box"></div>
+                    <div class="feedback-box" id="quiz-feedback-box"></div>
+                    <button class="next-btn" id="quiz-next-btn" onclick="nextQuestion()">Nächste Frage ➔</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="projekt_woche.js"></script>
+</body>
+</html>
