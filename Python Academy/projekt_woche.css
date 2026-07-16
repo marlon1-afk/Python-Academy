@@ -1,0 +1,401 @@
+:root {
+    --blue-primary: #3776AB;
+    --yellow-primary: #FFD43B;
+    --bg-main: #000000;            /* Reines, tiefes Schwarz */
+    --bg-sidebar: #0a0a0a;         /* Leicht helleres Schwarz für Kontrast */
+    --bg-card: transparent;        /* Keine störenden grauen Box-Hintergründe mehr! */
+    --border-color: transparent;   /* Keine grauen Rahmen mehr um die Inhaltsblöcke */
+    --bg-code: #252525;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar links */
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-sidebar);
+    padding: 30px 20px;
+    border-right: 1px solid #252525;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+/* Alles zum logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sidebar a svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    opacity: 0.7;
+}
+
+.sidebar a:hover {
+    background-color: #121212;
+    color: var(--text-main);
+}
+
+.sidebar a.active-yellow {
+    background-color: rgba(255, 212, 59, 0.1);
+    color: var(--yellow-primary) !important;
+}
+
+.sidebar a.active-blue {
+    background-color: rgba(55, 118, 171, 0.1);
+    color: var(--blue-primary) !important;
+}
+
+.sidebar a.active-purple {
+    background-color: rgba(168, 85, 247, 0.1);
+    color: #9b42ed !important;
+}
+
+.sidebar a.active-pink {
+    background-color: rgba(236, 72, 153, 0.1);
+    color: #c02d76 !important;
+}
+
+/* Hauptbereich rechts */ 
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+/* Wichtig */
+header {
+  /*  display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-main);
+    padding: 24px 30px;
+ /*   border-bottom: 1px solid #252525; */
+}
+
+header {
+    display: none;
+}
+
+header h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+/* Durchsuchen der Themen */
+.search {
+    background-color: #0c0c0c;
+    border: 1px solid #222222;
+    color: var(--text-main);
+    padding: 10px 16px;
+    border-radius: 8px;
+    width: 240px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.search-pos{
+    margin: 0px 0 30px;
+}
+
+.search-pos .search{
+    width: 100%;
+}
+
+.search:focus {
+    border-color: var(--blue-primary);
+}
+
+/* CONTAINER NÄHER AM RAND */
+.container {
+    padding: 30px 15px;         /* Minimierter Abstand nach links und rechts */
+    width: 100%;                /* Nutzt die volle Breite */
+    max-width: 100%;            /* Keine künstliche Einengung in der Mitte */
+    margin: 0;                  /* Richtet den Inhalt bündig links aus */
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* CARDS OHNE HINTERGRUND UND OHNE RÄNDER */
+.card {
+    background-color: var(--bg-card);
+    border: none;
+    padding: 0 15px 35px 15px;  /* Minimaler linker Rand, schöner Abstand nach unten */
+    border-radius: 0;
+    box-shadow: none;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--blue-primary);
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* Tipp-Boxen */
+.tip-box {
+    background-color: #080808;
+    border-left: 4px solid var(--yellow-primary);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Code-Blöcke */
+.code-wrapper {
+    background-color: var(--bg-code);
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+/* Code abschnitte (überschrift teil)*/
+.code-header {
+    background-color: #050505;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #111111;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.code {
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+/*Kopier bereich*/
+.copy {
+    background: transparent;
+    border: 1px solid #333333;
+    color: var(--text-main);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+}
+/*(selbserklärend)*/
+.copy:hover {
+    background-color: var(--blue-primary);
+    border-color: var(--blue-primary);
+}
+
+/* Syntax Highlighting */
+.str { color: #a5d6ff; }
+.num { color: #ff7b72; }
+.fnc { color: #d2a8ff; }
+.cmt { color: #8b949e; }
+.kwd { color: #ff7b72; }
+
+/* Terminal */
+.terminal-wrapper {
+    background-color: #030303;
+    border: 1px solid #111111;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.terminal-header {
+    background-color: #070707;
+    padding: 8px 20px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.terminal-output {
+    padding: 15px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #e2e8f0;
+}
+
+/* KI Prompt Grid */
+.prompt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.prompt-card {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.prompt-card.bad {
+    background-color: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.prompt-card.good {
+    background-color: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.prompt-card h4 {
+    margin-bottom: 10px;
+}
+
+.prompt-card.bad h4 { color: #f87171; }
+.prompt-card.good h4 { color: #34d399; }
+
+/* Quiz & Game-Stile */
+.quiz-welcome-screen {
+    text-align: left;
+    padding: 40px 15px;
+}
+
+.start-btn {
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    background-color: var(--yellow-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.quiz-game-container, .game-container {
+    display: none;
+    padding: 15px;
+}
+
+.quiz-progress, .game-score-board {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.quiz-option {
+    background-color: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text-main);
+}
+
+.quiz-option:hover {
+    background-color: #111111;
+}
+
+.feedback-box {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.feedback-box.correct {
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+}
+
+.feedback-box.wrong {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+.next-btn {
+    display: none;
+    background-color: var(--blue-primary);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Interaktive Klick-Zeilen für den Bug-Jäger */
+.code-line {
+    padding: 3px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block;
+}
+
+.code-line:hover {
+    background-color: #1a1a1a;
+}
